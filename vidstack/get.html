@@ -15,10 +15,22 @@
         }
     </style>
 
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var getURL = getParameterByName('url');
+        var getSUB = getParameterByName('sub');
+        var getIMG = getParameterByName('img');
+        var getLOGO = getParameterByName('logo');
+    </script>
 
 <media-player
   title="Sprite Fight"
-  src="https://stream.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/low.mp4"
+  src=getURL
   poster="https://image.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/thumbnail.webp?time=268&width=980"
   thumbnails="https://media-files.vidstack.io/sprite-fight/thumbnails.vtt"
   aspect-ratio="16/9"
@@ -29,7 +41,7 @@
       alt="Girl walks into sprite gnomes around her friend on a campfire in danger!"
     ></media-poster>
    <track
-      src="https://media-files.vidstack.io/sprite-fight/subs/english.vtt"
+      src=getSUB
       label="English"
       srclang="en-US"
       kind="subtitles"
