@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JODHA AKBAR SUBTITLE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/style.css">
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/Jq6HIbgz.js'></script>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!--  Fullscreen Video CSS -->
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <!-- Player -->
+    <div id="player"></div>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var getURL = getParameterByName('url');
+        var getSUB = getParameterByName('sub');
+        var getIMG = getParameterByName('img');
+        var getLOGO = getParameterByName('logo');
+    </script>
+
+    <!-- partial -->
+
+    <script>
+    const playerInstance = jwplayer("player").setup({
+    controls: true,
+    sharing: false,
+    displaytitle: true,
+    displaydescription: true,
+    abouttext: "",
+    aboutlink: "",
+
+    skin: {
+        name: "netflix"
+    },
+
+    logo: {
+        file: getLOGO,
+    },
+
+    captions: {
+        color: "#FFF",
+        fontSize: 14,
+        backgroundOpacity: 0,
+        edgeStyle: "raised"
+    },
+
+    playlist: [{
+        title: "JODHA AKBAR EPISODE 22 SUBTITLE INDONESIA",
+        description: "BUDAYAKAN KLIK IKLAN SEBELUM DAN SESUDAH NONTON",
+        image: getIMG,
+        sources: [{label: '0', type: 'dash', file: "https://mediacloudfront.zee5.com/drm1/elemental/dash/TVShows/Jodha_Akbar_EP22_14082018_Rev1_RTR_NONE_b4f83e355e8a9f2cdda58b28c76fdb08/manifest-connected.mpd", drm: {"clearkey":{"keyId": '25a21276517a4dfe9b70850887fa400b',"key": '202741784a293d62cc22b237146f5a93'}},
+        }],
+            tracks:[
+            {
+            file: "https://adlidziliqram.github.io/jasub/22.id.vtt",
+            label: "INDONESIA",
+            kind: "captions",
+            default: true,
+            }],
+    }],
+});
+
+playerInstance.on("ready", function() {
+
+    // Move the timeslider in-line with other controls
+    const playerContainer = playerInstance.getContainer();
+    const buttonContainer = playerContainer.querySelector(".jw-button-container");
+    const spacer = buttonContainer.querySelector(".jw-spacer");
+    const timeSlider = playerContainer.querySelector(".jw-slider-time");
+    buttonContainer.replaceChild(timeSlider, spacer);
+
+    // Forward 10 seconds
+    const rewindContainer = playerContainer.querySelector(
+        ".jw-display-icon-rewind"
+    );
+    const forwardContainer = rewindContainer.cloneNode(true);
+    const forwardDisplayButton = forwardContainer.querySelector(
+        ".jw-icon-rewind"
+    );
+    forwardDisplayButton.style.transform = "scaleX(-1)";
+    forwardDisplayButton.ariaLabel = "Forward 10 Seconds";
+    const nextContainer = playerContainer.querySelector(".jw-display-icon-next");
+    nextContainer.parentNode.insertBefore(forwardContainer, nextContainer);
+
+    // control bar icon
+    playerContainer.querySelector(".jw-display-icon-next").style.display = "none"; // hide next button
+    const rewindControlBarButton = buttonContainer.querySelector(
+        ".jw-icon-rewind"
+    );
+    const forwardControlBarButton = rewindControlBarButton.cloneNode(true);
+    forwardControlBarButton.style.transform = "scaleX(-1)";
+    forwardControlBarButton.ariaLabel = "Forward 10 Seconds";
+    rewindControlBarButton.parentNode.insertBefore(
+        forwardControlBarButton,
+        rewindControlBarButton.nextElementSibling
+    );
+
+    // add onclick handlers
+    [forwardDisplayButton, forwardControlBarButton].forEach((button) => {
+        button.onclick = () => {
+            playerInstance.seek(playerInstance.getPosition() + 10);
+        };
+    });
+    });
+    </script>
+</body>
+</html>
