@@ -1,0 +1,7 @@
+CARA BATCH DARI Zee5
+
+1. (comma) replace tab 2x	
+2. Buka Excel dan Paste
+3. Ambil di Coloumn W - Y
+4. EncryptioKeys Replace 1. ( : ) menjadi ( ',"key": ' ) 2. ( "]} ) menjadi ( '}},}], ) 3. ( EncryptionKeys:[" ) menjadi ( drm: {"clearkey":{"keyId": ' )
+5. 
