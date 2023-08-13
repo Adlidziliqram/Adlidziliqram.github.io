@@ -22,14 +22,8 @@
     <!-- Player -->
     <div id="player"></div>
     <script>
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-        var getPL = getParameterByName('pl');
-        var getLOGO = getParameterByName('logo');
+        function getData(e){e=e.replace(/[\[]/,"[").replace(/[\]]/,"]");
+        var a=new RegExp("[?&]"+e+"=([^&#]*)").exec(location.search);return null===a?"":decodeURIComponent(a[1].replace(/\+/g," "))}
     </script>
 
     <!-- partial -->
@@ -48,7 +42,7 @@
     },
 
     logo: {
-        file: getLOGO,
+        file: "",
     },
 
     captions: {
@@ -58,7 +52,7 @@
         edgeStyle: "raised"
     },
 
-    playlist: atob(getPL),
+    playlist: atob(getData("get")),
 });
 
 playerInstance.on("ready", function() {
