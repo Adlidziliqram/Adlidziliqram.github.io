@@ -1,0 +1,45 @@
+﻿WEBVTT
+
+STYLE
+::cue(b) {
+		color: orange;
+		font-family: Arial; 
+		font-size: 300%;
+		font-weight: bold;
+}
+
+00:00:02.240 --> 00:00:05.400
+<b>Kami memberimu makanan untuk
+dimakan, pakaian untuk dipakai,</b>
+
+00:00:05.480 --> 00:00:07.200
+<b>atap di atas kepala Anda</b>
+
+00:00:07.400 --> 00:00:10.080
+<b>dan kami memberi Anda gaji.</b>
+
+00:00:11.400 --> 00:00:13.960
+<b>Meskipun banyak bantuan,</b>
+
+00:00:14.240 --> 00:00:18.760
+<b>kamu menggigit tangan yang memberimu makan.</b>
+
+00:00:19.200 --> 00:00:20.840
+<b>Dasar kelas buruh sialan!</b>
+
+00:00:23.320 --> 00:00:24.920
+<b>Bagaimana saya bisa percaya</b>
+
+00:00:25.440 --> 00:00:28.440
+<b>bahwa kamu tidak mencuri
+jam tangan mahal itu?</b>
+
+00:00:30.600 --> 00:00:33.000
+<b>Saya tahu betapa rendahnya pemikiran Anda</b>
+
+00:00:33.600 --> 00:00:35.920
+<b>dari wajahmu!</b>
+
+00:00:36.040 --> 00:00:39.880
+<b>Di mana ada kesulitan,
+di situ ada kemauan.</b>
