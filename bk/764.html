@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BHAGYA LAKSHMI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/style.css">
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/Jq6HIbgz.js'></script>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!--  Fullscreen Video CSS -->
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <!-- Player -->
+    <div id="player"></div>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var getURL = getParameterByName('url');
+        var getSUB = getParameterByName('sub');
+        var getIMG = getParameterByName('img');
+        var getLOGO = getParameterByName('logo');
+    </script>
+
+    <!-- partial -->
+
+    <script>
+    const playerInstance = jwplayer("player").setup({
+    controls: true,
+    sharing: false,
+    displaytitle: true,
+    displaydescription: true,
+    abouttext: "",
+    aboutlink: "",
+
+    skin: {
+        name: "netflix"
+    },
+
+    logo: {
+        file: getLOGO,
+    },
+
+    captions: {
+        color: "#FFF",
+        fontSize: 14,
+        backgroundOpacity: 0,
+        edgeStyle: "raised"
+    },
+
+    playlist: [{
+        title: "BHAGYA LAKSHMI EPISODE 764 SUBTITLE",
+        description: "BUDAYAKAN KLIK IKLAN SEBELUM DAN SESUDAH NONTON",
+        image: "https://akamaividz2.zee5.com/image/upload/w_264,h_149,c_scale,f_webp,q_auto:eco/resources/0-1-6z5462600/list/000001674619821acdd744d8bf4270064a9e3491.jpg",
+        sources: [{
+            label: '0',
+            type: 'dash',
+            file: "ttps://mediacloudfront.zee5.com/drm1/elemental/dash/TV_SHOWS/ZEE_TV/November2023/17112023/Episode/Bhagya_Lakshmi_Ep764_Episode_17112023_hi_7c155eb4acd67a0a2b02cf267f224157/manifest-connected.mpd",
+            drm: {
+                "clearkey": {
+                    "keyId": 'fe4806f9bf0f4fc9a78e4fb0d665b30b',
+                    "key": 'da73020bcb6def482be8d79e96c932ed'
+                }
+            },
+        }],
+            tracks:[
+            {
+            file: "https://adlidziliqram.github.io/bk/764.id.vtt",
+            label: "INDONESIA",
+            kind: "captions",
+            default: true,
+            }],
+    }],
+});
+
+playerInstance.on("ready", function() {
+
+    // Move the timeslider in-line with other controls
+    const playerContainer = playerInstance.getContainer();
+    const buttonContainer = playerContainer.querySelector(".jw-button-container");
+    const spacer = buttonContainer.querySelector(".jw-spacer");
+    const timeSlider = playerContainer.querySelector(".jw-slider-time");
+    buttonContainer.replaceChild(timeSlider, spacer);
+
+    // Forward 10 seconds
+    const rewindContainer = playerContainer.querySelector(
+        ".jw-display-icon-rewind"
+    );
+    const forwardContainer = rewindContainer.cloneNode(true);
+    const forwardDisplayButton = forwardContainer.querySelector(
+        ".jw-icon-rewind"
+    );
+    forwardDisplayButton.style.transform = "scaleX(-1)";
+    forwardDisplayButton.ariaLabel = "Forward 10 Seconds";
+    const nextContainer = playerContainer.querySelector(".jw-display-icon-next");
+    nextContainer.parentNode.insertBefore(forwardContainer, nextContainer);
+
+    // control bar icon
+    playerContainer.querySelector(".jw-display-icon-next").style.display = "none"; // hide next button
+    const rewindControlBarButton = buttonContainer.querySelector(
+        ".jw-icon-rewind"
+    );
+    const forwardControlBarButton = rewindControlBarButton.cloneNode(true);
+    forwardControlBarButton.style.transform = "scaleX(-1)";
+    forwardControlBarButton.ariaLabel = "Forward 10 Seconds";
+    rewindControlBarButton.parentNode.insertBefore(
+        forwardControlBarButton,
+        rewindControlBarButton.nextElementSibling
+    );
+
+    // add onclick handlers
+    [forwardDisplayButton, forwardControlBarButton].forEach((button) => {
+        button.onclick = () => {
+            playerInstance.seek(playerInstance.getPosition() + 10);
+        };
+    });
+    });
+    </script>
+</body>
+</html>
