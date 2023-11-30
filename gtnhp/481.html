@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GUDDAN</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/style.css">
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/Jq6HIbgz.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/bottom.js'></script>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!--  Fullscreen Video CSS -->
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <!-- Player -->
+    <div id="player"></div>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var getURL = getParameterByName('url');
+        var getSUB = getParameterByName('sub');
+        var getIMG = getParameterByName('img');
+        var getLOGO = getParameterByName('logo');
+    </script>
+
+    <!-- partial -->
+
+    <script>
+    const playerInstance = jwplayer("player").setup({
+    controls: true,
+    sharing: false,
+    displaytitle: true,
+    displaydescription: true,
+    abouttext: "",
+    aboutlink: "",
+
+    skin: {
+        name: "netflix"
+    },
+
+    logo: {
+        file: getLOGO,
+    },
+
+    captions: {
+        color: "#FFF",
+        fontSize: 14,
+        backgroundOpacity: 0,
+        edgeStyle: "raised"
+    },
+
+    playlist: [{title: "GUDDAN SUBTITLE EPISODE 481 ", description: "SILAHKAN KLIK IKLAN SEBELUM DAN SESUDAH NONTON",   image: "    https://akamaividz2.zee5.com/image/upload/w_264,h_149,c_scale,f_webp,q_auto:eco/resources/0-1-manual_30ukoudr69d0/list/guddancsep475seamless1.jpg", sources: [{label: '0', type: 'dash', file: "https://mediacloudfront.zee5.com/drm1/elemental/dash/ON_AIR/DOMESTIC/ZEE_TV/September2020/10092020/Seamless/Guddan_CS_Ep475_Seamless_10092020_hi_5666d81e2682a1532d210c61b4f9e599/manifest.mpd",    drm: {"clearkey":{"keyId": 'dd4a0fd2688744c6972f9ac46ba3e6ce',"key": 'de94177edc4efcc2869f7ed3ef10293b'}},}],   tracks: [{label: "INDONESIA", file: "   https://adlidziliqram.github.io/gtnhp/481.id.vtt",  kind: "captions", default: true,}],}],      
+
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GUDDAN</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/style.css">
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/Jq6HIbgz.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/Adlidziliqram/Adlidziliqram.github.io@main/test/bottom.js'></script>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <!--  Fullscreen Video CSS -->
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <!-- Player -->
+    <div id="player"></div>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var getURL = getParameterByName('url');
+        var getSUB = getParameterByName('sub');
+        var getIMG = getParameterByName('img');
+        var getLOGO = getParameterByName('logo');
+    </script>
+
+    <!-- partial -->
+
+    <script>
+    const playerInstance = jwplayer("player").setup({
+    controls: true,
+    sharing: false,
+    displaytitle: true,
+    displaydescription: true,
+    abouttext: "",
+    aboutlink: "",
+
+    skin: {
+        name: "netflix"
+    },
+
+    logo: {
+        file: getLOGO,
+    },
+
+    captions: {
+        color: "#FFF",
+        fontSize: 14,
+        backgroundOpacity: 0,
+        edgeStyle: "raised"
+    },
+
+    playlist: [{title: "GUDDAN SUBTITLE EPISODE 361 ", description: "SILAHKAN KLIK IKLAN SEBELUM DAN SESUDAH NONTON",   image: "    https://akamaividz2.zee5.com/image/upload/w_264,h_149,c_scale,f_webp,q_auto:eco/resources/0-1-manual_49j9bqjp3g20/list/01manual49j9bqjp3g20list.jpg",   sources: [{label: '0', type: 'dash', file: "https://mediacloudfront.zee5.com/drm1/elemental/dash/ON_AIR/DOMESTIC/ZEE_TV/Dec2019/20122019/Seamless/Rev_Guddan_Tumse_Na_Ho_Payegaa_Ep362_Seamless_20122019_hi_af6b0eef4a35b3fd32ef5becd4db6b61/manifest.mpd", drm: {"clearkey":{"keyId": 'f91f0b4400c8435d94fd0a4f64d805a4',"key": 'c8a45c83f9a4d1cfbcc80ca5c3866454'}},}],   tracks: [{label: "INDONESIA", file: "   https://adlidziliqram.github.io/gtnhp/361.id.vtt",  kind: "captions", default: true,}],}],      
+
+});
+    </script>
+</body>
+</html>
