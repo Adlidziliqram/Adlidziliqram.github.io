@@ -76,9 +76,9 @@
         appId: '9DFB77C0',
         contentType: 'video/mp4',
       },
-      watermark: '//cdn.jsdelivr.net/gh/ZheHacK/ZheTV@main/res/image/LogoV1.webp',
-      position: 'bottom-right',
-      watermarkLink: '//zhetv.eu.org/',
+    //  watermark: '//cdn.jsdelivr.net/gh/ZheHacK/ZheTV@main/res/image/LogoV1.webp',
+    //  position: 'bottom-right',
+    //  watermarkLink: '//zhetv.eu.org/',
       shakaOnBeforeLoad: function (shaka_player) {
         shaka_player.getNetworkingEngine().registerRequestFilter(function (type, request, context) {
           shaka_player.configure('manifest.dash.ignoreMinBufferTime', true);
